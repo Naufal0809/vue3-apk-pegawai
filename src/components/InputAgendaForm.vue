@@ -1,28 +1,28 @@
 <template>
-  <div class="container">
+  <div class="form-container">
     <h1>Tambah Agenda</h1>
     <form @submit.prevent="InputAgenda">
       <div class="form-group">
         <label for="tanggal">Tanggal:</label>
-        <input type="date" id="tanggal" v-model="agenda.tanggal" required>
+        <input type="date" id="tanggal" v-model="agenda.tanggal" placeholder="Isi tanggal" required />
       </div>
       <div class="form-group">
         <label for="waktu">Waktu:</label>
-        <input type="time" id="waktu" v-model="agenda.waktu" required>
+        <input type="time" id="waktu" v-model="agenda.waktu" placeholder="Isi waktu" required />
       </div>
       <div class="form-group">
-        <label for="Kegiatan">Kegiatan:</label>
-        <input type="text" id="Kegiatan" v-model="agenda.kegiatan" required>
+        <label for="kegiatan">Kegiatan:</label>
+        <input type="text" id="kegiatan" v-model="agenda.kegiatan" placeholder="Isi kegiatan" required />
       </div>
       <div class="form-group">
-        <label for="tipeAcara">Tipe Acara:</label>
+        <label>Tipe Acara:</label>
         <div class="radio-group">
           <label>
-            <input type="radio" name="tipe_acara" value="offline" v-model="agenda.tipe_acara">
+            <input type="radio" id="offline" value="Offline" v-model="agenda.tipe_acara" />
             Offline
           </label>
           <label>
-            <input type="radio" name="tipe_acara" value="online" v-model="agenda.tipe_acara">
+            <input type="radio" id="online" value="Online" v-model="agenda.tipe_acara" />
             Online
           </label>
         </div>
@@ -33,35 +33,34 @@
           type="text"
           id="tempat"
           v-model="agenda.tempat"
-          :placeholder="agenda.tipe_acara === 'offline' ? 'Masukkan nama tempat' : 'Masukkan link (Zoom, GMeet, dll.)'"
+          :placeholder="agenda.tipe_acara === 'Offline' ? 'Masukkan nama tempat' : 'Masukkan link (Zoom, GMeet, dll.)'"
           required
-        >
+        />
       </div>
       <div class="form-group">
         <label for="delegasi">Delegasi:</label>
-        <!-- <textarea id="delegasi" v-model="agenda.delegasi" required></textarea> -->
         <VueMultiselect
-        v-model="agenda.delegasi"
-        :options="['andra','naufal','adit']"
-        :searchable="true"
-        :multiple="true">
-
-    </VueMultiselect>
-    {{ agenda.delegasi }}
-
+          v-model="agenda.delegasi"
+          :options="['andra','naufal','adit']"
+          :searchable="true"
+          :multiple="true"
+          placeholder="Pilih delegasi"
+        />
+        {{ agenda.delegasi }}
       </div>
       <div class="form-group">
-        <label for="drescode">Drescode:</label>
-        <input type="text" id="drescode" v-model="agenda.drescode" required>
+        <label for="drescode">Dresscode:</label>
+        <input type="text" id="drescode" v-model="agenda.drescode" placeholder="Isi dresscode" required />
       </div>
       <div class="form-group">
         <label for="upload">Upload Surat:</label>
-        <input type="file" id="upload"  @change="onFileChange"> 
+        <input type="file" id="upload" @change="onFileChange" />
       </div>
-      <button type="submit">Tambah</button>
+      <button type="submit" class="submit-btn">Tambah</button>
     </form>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -78,7 +77,7 @@ export default {
         waktu: '',
         kegiatan: '',
         tipe_acara: '',
-        lokasi: '', // Digunakan untuk tempat atau link acara
+        // lokasi: '', // Digunakan untuk tempat atau link acara
         delegasi: [],
         drescode: '',
         file: '',
@@ -140,57 +139,58 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 20px;
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
 .form-group {
   margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
 }
 
-label {
+.form-group label {
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
-input,
-textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
+  max-width: 400px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box;
-}
-
-textarea {
-  resize: vertical;
+  border-radius: 4px;
 }
 
 .radio-group {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 5px;
 }
 
 .radio-group label {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
-button {
+button.submit-btn {
+  width: 100%;
+  padding: 10px;
   background-color: green;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
-button:hover {
+button.submit-btn:hover {
   background-color: darkgreen;
 }
-
 </style>

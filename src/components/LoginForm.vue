@@ -7,8 +7,8 @@
       </div>
       <form @submit.prevent="handleLogin">
         <div class="mb-4">
-          <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-          <input type="email" id="email" v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <label for="NIP" class="block text-gray-700 font-bold mb-2">NIP</label>
+          <input type="Text" id="NIP" v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
         <div class="mb-6">
           <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>

@@ -7,12 +7,12 @@
       </div>
       <form @submit.prevent="handleSignup">
         <div class="mb-4">
-          <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
+          <label for="username" class="block text-gray-700 font-bold mb-2">Nama</label>
           <input type="text" id="username" v-model="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
         <div class="mb-4">
-          <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-          <input type="email" id="email" v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <label for="email" class="block text-gray-700 font-bold mb-2">NIP</label>
+          <input type="text" id="email" v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
         <div class="mb-4">
           <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
@@ -66,11 +66,11 @@ export default {
         if (response.data.succses === true) {
           this.$router.push('/login');
         } else {
-          alert('Signup gagal. Silakan coba lagi.');
+          alert('login berhasil.');
         }
       } catch (error) {
         console.error('Signup error:', error);
-        alert('Terjadi kesalahan saat signup.');
+        alert('Gagal Daftar Karena Data sudah Terdaftar.');
       }
     },
   },

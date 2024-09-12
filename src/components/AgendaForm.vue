@@ -121,6 +121,9 @@ export default {
     };
   },
   computed: {
+    // conversitanggal(tanggal) {
+    //   useDateFormat(tanggal, "dddd, DD MMMM YYYY", {locales:'id-ID'}) 
+    // },
     filteredAgendaItems() {
       return this.agendaItems.filter(item => {
         const query = this.searchQuery.toLowerCase();
@@ -175,6 +178,7 @@ export default {
         console.error(error);
       }
     },
+    
     async listAgendaByDate() {
       try {
         var token = localStorage.getItem("token");
@@ -206,7 +210,7 @@ export default {
       }
     },
     logout() {
-      localStorage.removeItem('authToken');
+      localStorage.removeItem('token');
       this.$router.push('/login');
     },
     addItem() {
@@ -242,7 +246,7 @@ export default {
       agendaString += this.tgl+'\n\n\n';
       // console.log(hari)
       this.filteredAgendaItems.forEach((item, index) => {
-        agendaString += `${index + 1}. Waktu: ${item.waktu} WIB\n Kegiatan: ${item.kegiatan}\n Tempat: ${item.tempat}\n Delegasi: ${item.delegasi}\n Dresscode: (${item.dresscode})\n\n`;
+        agendaString += `${index + 1}. Waktu: ${item.waktu} WIB\n Kegiatan: ${item.kegiatan}\n Tempat: ${item.tempat}\n Delegasi: ${item.delegasi}\n Dresscode: ${item.drescode}\n\n`;
       });
 
       // Copy to clipboard
