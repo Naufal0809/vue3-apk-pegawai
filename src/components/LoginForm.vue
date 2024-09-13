@@ -36,7 +36,7 @@ export default {
   methods: {
     async LoginAgenda() {
       try {
-        const response = await axios.post("http://172.20.10.2/api/login", {
+        const response = await axios.post("http://192.168.21.120:8000/api/login", {
           email: this.email,
           password: this.password,
         });

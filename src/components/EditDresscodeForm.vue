@@ -44,7 +44,7 @@ export default {
       const id = this.$route.params.id;
       try {
         const token = localStorage.getItem('token'); // Ambil token dari localStorage
-        const response = await axios.get(`http://172.20.10.2/api/dresscodes/${id}`, {
+        const response = await axios.get(`http://192.168.21.120:8000/api/dresscodes/${id}`, {
           headers: {
             'Authorization': `Bearer ${token}` // Tambahkan Bearer token di header
           }
@@ -60,7 +60,7 @@ export default {
       const id = this.$route.params.id;
       try {
         const token = localStorage.getItem('token'); // Ambil token dari localStorage
-        await axios.put(`http://172.20.10.2/api/dresscodes/${id}`, this.dresscode, {
+        await axios.put(`http://192.168.21.120:8000/api/dresscodes/${id}`, this.dresscode, {
           headers: {
             'Authorization': `Bearer ${token}` // Tambahkan Bearer token di header
           }

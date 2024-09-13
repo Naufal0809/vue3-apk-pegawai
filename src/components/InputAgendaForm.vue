@@ -100,7 +100,7 @@ export default {
               'Authorization': 'Bearer ' + token
             }
           };
-          const response = await axios.get('http://172.20.10.2/api/pegawais', config);
+          const response = await axios.get('http://192.168.21.120:8000/api/pegawais', config);
           this.pegawais = response.data.data;
         } catch (error) {
           console.error('Error fetching pegawai:', error);
@@ -116,7 +116,7 @@ export default {
             'Content-Type': 'multipart/form-data'
           }
         };
-        const { data } = await axios.post('http://172.20.10.2/api/agendas', {
+        const { data } = await axios.post('http://192.168.21.120:8000/api/agendas', {
           tanggal: this.agenda.tanggal,
           waktu: this.agenda.waktu,
           kegiatan: this.agenda.kegiatan,

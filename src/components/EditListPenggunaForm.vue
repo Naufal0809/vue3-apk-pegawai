@@ -50,7 +50,7 @@
         const id = this.$route.params.id;
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`http://172.20.10.2/api/users/${id}`, {
+          const response = await axios.get(`http://192.168.21.120:8000/api/users/${id}`, {
             headers: {
               'Authorization': `Bearer ${token}`
             }
@@ -65,7 +65,7 @@
         const id = this.$route.params.id;
         try {
           const token = localStorage.getItem('token');
-          await axios.put(`http://172.20.10.2/api/users/${id}`, this.user, {
+          await axios.put(`http://192.168.21.120:8000/api/users/${id}`, this.user, {
             headers: {
               'Authorization': `Bearer ${token}`
             }

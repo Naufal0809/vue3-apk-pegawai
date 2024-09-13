@@ -84,7 +84,7 @@
             <td>{{ item.tempat }}</td>
             <td>{{ item.delegasi }}</td>
             <td>{{ item.drescode }}</td>
-            <td><a :href="'http://172.20.10.2/upload/'+ item.file_name " target="_blank">{{ item.original_file}}</a></td>
+            <td><a :href="'http://192.168.21.120:8000/upload/'+ item.file_name " target="_blank">{{ item.original_file}}</a></td>
             <td>
               <div class="action-buttons">
                 <button class="edit-button" @click="editItem(item.id)">
@@ -171,7 +171,7 @@ export default {
             'Authorization': 'Bearer ' + token
           }
         }
-        const response = await axios.get("http://172.20.10.2/api/agendas-today", config);
+        const response = await axios.get("http://192.168.21.120:8000/api/agendas-today", config);
         this.agendaItems = response.data.data;
         this.tgl = useDateFormat(useNow(), "dddd, DD MMMM YYYY", {locales:'id-ID'})
       } catch (error) {
@@ -187,7 +187,7 @@ export default {
             'Authorization': 'Bearer ' + token
           }
         }
-        const response = await axios.get("http://172.20.10.2/api/agenda-by-date?start_date="+this.start_date+"&&end_date="+this.end_date, config); //kaklo get di dalem url kalo post di dalem body 
+        const response = await axios.get("http://192.168.21.120:8000/api/agenda-by-date?start_date="+this.start_date+"&&end_date="+this.end_date, config); //kaklo get di dalem url kalo post di dalem body 
         this.agendaItems = response.data.data;
       } catch (error) {
         console.error(error);
@@ -202,7 +202,7 @@ export default {
               'Authorization': 'Bearer ' + token
             }
           }
-          await axios.delete(`http://172.20.10.2/api/agendas/${id}`, config);
+          await axios.delete(`http://192.168.21.120:8000/api/agendas/${id}`, config);
           this.agendaItems = this.agendaItems.filter(item => item.id !== id);
         } catch (error) {
           console.error('Terjadi kesalahan saat menghapus agenda:', error);

@@ -40,7 +40,7 @@
         const id = this.$route.params.id; // Ambil ID dari parameter URL
         try {
           const token = localStorage.getItem('token'); // Ambil token dari localStorage
-          const response = await axios.get(`http://172.20.10.2/api/pegawais/${id}`, {
+          const response = await axios.get(`http://192.168.21.120:8000/api/pegawais/${id}`, {
             headers: {
               'Authorization': `Bearer ${token}` // Sertakan Bearer token dalam header
             }
@@ -56,7 +56,7 @@
         const id = this.$route.params.id; // Ambil ID dari parameter URL
         try {
           const token = localStorage.getItem('token'); // Ambil token dari localStorage
-          await axios.put(`http://172.20.10.2/api/pegawais/${id}`, this.pegawai, {
+          await axios.put(`http://192.168.21.120:8000/api/pegawais/${id}`, this.pegawai, {
             headers: {
               'Authorization': `Bearer ${token}` // Sertakan Bearer token dalam header
             }

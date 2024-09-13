@@ -57,7 +57,7 @@ export default {
             'Authorization': 'Bearer ' + token
           }
         };
-        const response = await axios.get('http://172.20.10.2/api/dresscodes', config);
+        const response = await axios.get('http://192.168.21.120:8000/api/dresscodes', config);
         this.dresscodes = response.data.data;
       } catch (error) {
         console.error('Error fetching dresscodes:', error);
@@ -82,7 +82,7 @@ export default {
               'Authorization': 'Bearer ' + token
             }
           };
-          await axios.delete(`http://172.20.10.2/api/dresscodes/${id}`, config);
+          await axios.delete(`http://192.168.21.120:8000/api/dresscodes/${id}`, config);
           this.dresscodes.splice(index, 1); // Hapus dari tampilan setelah berhasil dihapus dari server
           alert('Dresscode berhasil dihapus!');
         } catch (error) {

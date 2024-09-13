@@ -45,7 +45,7 @@ export default {
             'Authorization': 'Bearer ' + token
           }
         };
-        const response = await axios.get(`http://172.20.10.2/api/dresscodes/${index}`, config);
+        const response = await axios.get(`http://192.168.21.120:8000/api/dresscodes/${index}`, config);
         this.form = response.data;
       } catch (error) {
         console.error('Error fetching dresscode:', error);
@@ -63,9 +63,9 @@ export default {
           };
 
           if (this.$route.query.index) {
-            await axios.put(`http://172.20.10.2/api/dresscodes/${this.$route.query.index}`, this.form, config);
+            await axios.put(`http://192.168.21.120:8000/api/dresscodes/${this.$route.query.index}`, this.form, config);
           } else {
-            await axios.post('http://172.20.10.2/api/dresscodes', this.form, config);
+            await axios.post('http://192.168.21.120:8000/api/dresscodes', this.form, config);
           }
           
           alert('Dresscode berhasil disimpan!');

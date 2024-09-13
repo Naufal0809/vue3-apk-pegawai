@@ -55,7 +55,7 @@
             }
           };
   
-          const response = await axios.post('http://172.20.10.2/api/users', {
+          const response = await axios.post('http://192.168.21.120:8000/api/users', {
             name: this.pengguna.nama,
             email: this.pengguna.email,
             password: this.pengguna.password,

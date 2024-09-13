@@ -66,7 +66,7 @@ export default {
             'Authorization': 'Bearer ' + token
           }
         }
-        const response = await axios.get('http://172.20.10.2/api/users', config);
+        const response = await axios.get('http://192.168.21.120:8000/api/users', config);
         this.users = response.data.data;
       } catch (error) {
         console.error('Error fetching users:', error);
@@ -86,7 +86,7 @@ export default {
             'Authorization': 'Bearer ' + token
           }
         }
-        await axios.delete(`http://172.20.10.2/api/users/${id}`, config);
+        await axios.delete(`http://192.168.21.120:8000/api/users/${id}`, config);
         this.fetchUsers();
       } catch (error) {
         console.error('Error deleting user:', error);

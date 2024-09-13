@@ -57,7 +57,7 @@
               'Authorization': 'Bearer ' + token
             }
           };
-          const response = await axios.get('http://172.20.10.2/api/pegawais', config);
+          const response = await axios.get('http://192.168.21.120:8000/api/pegawais', config);
           this.pegawais = response.data.data;
         } catch (error) {
           console.error('Error fetching pegawai:', error);
@@ -82,7 +82,7 @@
                 'Authorization': 'Bearer ' + token
               }
             };
-            await axios.delete(`http://172.20.10.2/api/pegawais/${id}`, config);
+            await axios.delete(`http://192.168.21.120:8000/api/pegawais/${id}`, config);
             this.pegawais.splice(index, 1); // Hapus dari tampilan setelah berhasil dihapus dari server
             alert('Pegawai berhasil dihapus!');
           } catch (error) {

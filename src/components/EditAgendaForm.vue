@@ -94,7 +94,7 @@ export default {
       const id = this.$route.params.id;
       try {
         const token = localStorage.getItem('token'); // Ambil token dari localStorage
-        const response = await axios.get("http://172.20.10.2/api/agendas/" + id, {
+        const response = await axios.get("http://192.168.21.120:8000/api/agendas/" + id, {
           headers: {
             'Authorization': `Bearer ${token}` // Tambahkan Bearer token di header
           }
@@ -115,7 +115,7 @@ export default {
             'Content-Type': 'multipart/form-data'
           }
         };
-        const { data } = await axios.post('http://172.20.10.2/api/edit-agendas/' + id , {
+        const { data } = await axios.post('http://192.168.21.120:8000/api/edit-agendas/' + id , {
           tanggal: this.agenda.tanggal,
           waktu: this.agenda.waktu,
           kegiatan: this.agenda.kegiatan,
